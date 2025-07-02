@@ -1,0 +1,324 @@
+{
+  "variables": {
+    "guest_name": null,
+    "helpful": false
+  },
+  "start": "arrive",
+  "nodes": {
+    "arrive": {
+      "data": {
+        "text": "...",
+        "portrait": "peepoArrive",
+        "response_text": "..."
+      },
+      "redirects": [
+        {
+          "node_name": "hey"
+        }
+      ]
+    },
+    "hey": {
+      "data": {
+        "text": "Hi, hello",
+        "portrait": "peepoHey",
+        "response_text": "Hello, hi"
+      },
+      "redirects": [
+        {
+          "node_name": "welcome",
+          "conditions": [
+            {
+              "variable": "guest_name",
+              "operator": "=",
+              "value": null
+            }
+          ]
+        },
+        {
+          "node_name": "welcome_back",
+          "conditions": [
+            {
+              "variable": "guest_name",
+              "operator": "!=",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    "welcome": {
+      "data": {
+        "text": "Welcome to my portofolio site. May I know your name?"
+      },
+      "modal_form": {
+        "text": "Sure",
+        "inputs": [
+            {
+                "placeholder": "My name is ...",
+                "variable": "guest_name"
+            }
+        ],
+        "confirm": {
+          "text": "Confirm",
+          "set_conditions": [
+            {
+              "variable": "guest_name",
+              "operator": "input",
+              "value": null
+            }
+          ],
+          "redirects": [
+            {
+              "node_name": "welcome_new"
+            }
+          ]
+        },
+        "cancel": {
+          "text": "No, I change my mind",
+          "set_conditions": [
+            {
+              "variable": "guest_name",
+              "operator": "=",
+              "value": null
+            }
+          ],
+          "redirects": [
+            {
+              "node_name": "welcome_not_told_name"
+            }
+          ]
+        }
+      },
+      "choices": [
+        {
+          "text": "No, I don't think so",
+          "redirects": [
+            {
+              "node_name": "welcome_not_told_name"
+            }
+          ]
+        }
+      ]
+    },
+    "welcome_not_told_name": {
+      "data": {
+        "text": "Okay then.",
+        "portrait": "peepoFine",
+        "response_text": "..."
+      },
+      "redirects": [
+        {
+          "node_name": "welcome_anyway"
+        }
+      ]
+    },
+    "welcome_anyway": {
+      "data": {
+        "text": "Anyways, how's your day been going?"
+      },
+      "choices": [
+        {
+          "text": "It's fantastic",
+          "redirects": [
+            {
+              "node_name": "good_day"
+            }
+          ]
+        },
+        {
+          "text": "Hard day :(",
+          "redirects": [
+            {
+              "node_name": "bad_day"
+            }
+          ]
+        }
+      ]
+    },
+    "welcome_new": {
+      "data": {
+        "text": "Welcome ${guest_name}, how's your day been going?"
+      },
+      "choices": [
+        {
+          "text": "It's fantastic",
+          "redirects": [
+            {
+              "node_name": "good_day"
+            }
+          ]
+        },
+        {
+          "text": "Hard day :(",
+          "redirects": [
+            {
+              "node_name": "bad_day"
+            }
+          ]
+        }
+      ]
+    },
+    "welcome_back": {
+      "data": {
+        "text": "Yoo welcome back ${guest_name}, how's your day been going?"
+      },
+      "choices": [
+        {
+          "text": "It's fantastic",
+          "redirects": [
+            {
+              "node_name": "good_day"
+            }
+          ]
+        },
+        {
+          "text": "Hard day :(",
+          "redirects": [
+            {
+              "node_name": "bad_day"
+            }
+          ]
+        }
+      ]
+    },
+    "good_day": {
+      "data": {
+        "text": "AWESOME!!! Hope it be stay like that for the rest of the day.",
+        "portrait": "peepoHappy",
+        "response_text": "Thanks"
+      },
+      "redirects": [
+        {
+          "node_name": "begin"
+        }
+      ]
+    },
+    "bad_day": {
+      "data": {
+        "text": "Nyooo.... I hope it gets better for the rest of the day.",
+        "portrait": "peepoSad",
+        "response_text": "Thanks :)"
+      },
+      "redirects": [
+        {
+          "node_name": "begin"
+        }
+      ]
+    },
+    "begin": {
+      "data": {
+        "text": "Well, since you're here. Let me show you my creation.",
+        "response_text": "Alright"
+      },
+      "redirects": [
+        {
+          "node_name": "only_one"
+        }
+      ]
+    },
+    "only_one": {
+      "data": {
+        "text": "Its only one for now, but there will be more of it.",
+        "portrait": "COPIUM",
+        "response_text": "Show me"
+      },
+      "redirects": [
+        {
+          "node_name": "blue_archive"
+        }
+      ]
+    },
+    "blue_archive": {
+      "data": {
+        "text": "This is a planner application for a mobile game called Blue Archive. I still developing it for more features and fixings. Tell me, what do you think?"
+      },
+      "modal_showcase": {
+        "text": "Let's see ...",
+        "pictures": [
+          "/blue-archive/blue-archive-1.png",
+          "/blue-archive/blue-archive-2.png",
+          "/blue-archive/blue-archive-3.png",
+          "/blue-archive/blue-archive-4.png"
+        ],
+        "link": "https://kubrodong.github.io/blue-archive-planner/",
+        "good": {
+          "text": "It's great :)",
+          "set_conditions": [
+            {
+              "variable": "blue_archive_app",
+              "operator": "=",
+              "value": true
+            }
+          ],
+          "redirects": [
+            {
+              "node_name": "app_was_good"
+            }
+          ]
+        },
+        "bad": {
+          "text": "Still need more work :(",
+          "set_conditions": [
+            {
+              "variable": "blue_archive_app",
+              "operator": "=",
+              "value": false
+            }
+          ],
+          "redirects": [
+            {
+              "node_name": "app_was_not_good"
+            }
+          ]
+        }
+      }
+    },
+    "app_was_good": {
+      "data": {
+        "text": "REALLY?!!! I'm glad you like it.",
+        "portrait": "peepoHappy",
+        "response_text": "Nice"
+      },
+      "redirects": [
+        {
+          "node_name": "end"
+        }
+      ]
+    },
+    "app_was_not_good": {
+      "data": {
+        "text": "I will work harder to make it better.",
+        "portrait": "peepoSad",
+        "response_text": "Nice"
+      },
+      "redirects": [
+        {
+          "node_name": "end"
+        }
+      ]
+    },
+    "end": {
+      "data": {
+        "text": "Anyways, that's it for my scuffed portofolio. I hope coming here make your day a little bit better. ",
+        "response_text": "See you"
+      },
+      "redirects": [
+        {
+          "node_name": "bye"
+        }
+      ]
+    },
+    "bye": {
+      "data": {
+        "text": "I'll see you when I see you",
+        "portrait": "peepoBye",
+        "response_text": "Restart"
+      },
+      "redirects": [
+        {
+          "node_name": "arrive"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,126 @@
+.loadingContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #007ced 1%, #cce7ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.characterContainer {
+  margin-bottom: 2rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+.character {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.loadingText {
+  margin-bottom: 2rem;
+}
+
+.loadingTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.loadingSubtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+.loadingDots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.loadingDot {
+  width: 12px;
+  height: 12px;
+  background: #007ced;
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.cloud1 {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 120px;
+  height: 60px;
+  background: #fff;
+  border-radius: 60px;
+  opacity: 0.7;
+  animation: cloudFloat1 8s linear infinite;
+}
+.cloud2 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 100px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50px;
+  opacity: 0.5;
+  animation: cloudFloat2 12s linear infinite;
+}
+.cloud3 {
+  position: absolute;
+  top: 60%;
+  left: 80%;
+  width: 140px;
+  height: 70px;
+  background: #fff;
+  border-radius: 70px;
+  opacity: 0.6;
+  animation: cloudFloat3 10s linear infinite;
+}
+@keyframes cloudFloat1 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100vw); }
+}
+@keyframes cloudFloat2 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100vw); }
+}
+@keyframes cloudFloat3 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50vw); }
+} 

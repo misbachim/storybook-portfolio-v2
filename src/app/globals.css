@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+@layer base {
+  html {
+    font-family: 'Neucha', sans-serif;
+  }
+  
+  label {
+    font-family: 'Neucha', sans-serif;
+  }
+}
+
+/* Global dark mode styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.light {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Neucha', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Background cloud and animation styles */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+  transition: background 0.5s ease;
+}
+.background.dark {
+  background: linear-gradient(to bottom, #1a1a2e 0%, #16213e 100%);
+}
+#background-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+.x1 {
+  animation: animateCloud 35s linear infinite;
+  transform: scale(0.65);
+}
+.x2 {
+  animation: animateCloud 20s linear infinite;
+  transform: scale(0.3);
+}
+.x3 {
+  animation: animateCloud 30s linear infinite;
+  transform: scale(0.5);
+}
+.x4 {
+  animation: animateCloud 18s linear infinite;
+  transform: scale(0.4);
+}
+.x5 {
+  animation: animateCloud 25s linear infinite;
+  transform: scale(0.55);
+}
+@-webkit-keyframes animateCloud {
+  0% { margin-left: -1000px; }
+  100% { margin-left: 100%; }
+}
+@-moz-keyframes animateCloud {
+  0% { margin-left: -1000px; }
+  100% { margin-left: 100%; }
+}
+@keyframes animateCloud {
+  0% { margin-left: -1000px; }
+  100% { margin-left: 100%; }
+}
+.cloud {
+  background: #fff;
+  background: -moz-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fff), color-stop(100%, #f1f1f1));
+  background: -webkit-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  background: -o-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  background: -ms-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+  background: linear-gradient(to bottom, #fff 5%, #f1f1f1 100%);
+  border-radius: 100px;
+  position: relative;
+  margin: 20px auto 0;
+  opacity: 0.8;
+  width: 350px;
+  height: 120px;
+}
+.cloud.dark {
+  background: #2c3e50;
+  background: -moz-linear-gradient(top, #2c3e50 5%, #34495e 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #2c3e50), color-stop(100%, #34495e));
+  background: -webkit-linear-gradient(top, #2c3e50 5%, #34495e 100%);
+  background: -o-linear-gradient(top, #2c3e50 5%, #34495e 100%);
+  background: -ms-linear-gradient(top, #2c3e50 5%, #34495e 100%);
+  background: linear-gradient(to bottom, #2c3e50 5%, #34495e 100%);
+}
+.cloud:after, .cloud:before {
+  content: '';
+  position: absolute;
+  background: #fff;
+  z-index: -1;
+}
+.cloud.dark:after, .cloud.dark:before {
+  background: #2c3e50;
+}
+.cloud:after {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+  border-radius: 100px;
+}
+.cloud:before {
+  width: 180px;
+  height: 180px;
+  top: -90px;
+  right: 50px;
+  border-radius: 200px;
+} 
