@@ -3,8 +3,8 @@ import './globals.css'
 import ClientProviders from './ClientProviders';
 
 export const metadata = {
-  title: 'Portfolio',
-  description: 'My portfolio website',
+  title: 'Storybook Portfolio',
+  description: 'My storybook portfolio website',
 }
 
 type RootLayoutProps = {
