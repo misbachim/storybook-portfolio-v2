@@ -45,7 +45,7 @@ export default function Background({ mode }: BackgroundProps) {
       setClouds(prevClouds =>
         prevClouds.map(cloud => {
           let newLeft = cloud.left + cloud.speed;
-          let windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1920;
+          const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1920;
           if (newLeft > windowWidth + 100) {
             // Jika sudah keluar layar kanan, reset ke kiri dengan posisi top acak
             newLeft = CLOUD_START_LEFT;
