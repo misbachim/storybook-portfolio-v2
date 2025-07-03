@@ -48,7 +48,7 @@
     },
     "welcome": {
       "data": {
-        "text": "Welcome to my portofolio site. May I know your name?"
+        "text": "Welcome to my portfolio site. May I know your name?"
       },
       "modal_form": {
         "text": "Sure",
@@ -299,7 +299,7 @@
     },
     "end": {
       "data": {
-        "text": "Anyways, that's it for my scuffed portofolio. I hope coming here make your day a little bit better. ",
+        "text": "Anyways, that's it for my scuffed portfolio. I hope coming here make your day a little bit better. ",
         "response_text": "See you"
       },
       "redirects": [
